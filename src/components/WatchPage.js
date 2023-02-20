@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useParams, useSearchParams } from "react-router-dom";
 import { closeMenu } from "../utils/appSlice";
+import CommentsContainer from "./CommentsContainer";
 
 const WatchPage = () => {
   const dispatch = useDispatch();
@@ -11,6 +12,7 @@ const WatchPage = () => {
     dispatch(closeMenu());
   }, []);
   return (
+    <div className="flex flex-col">
     <div className="p-5">
       <iframe
         width="1200"
@@ -21,6 +23,8 @@ const WatchPage = () => {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
       ></iframe>
+    </div>
+    <CommentsContainer/>
     </div>
   );
 };
